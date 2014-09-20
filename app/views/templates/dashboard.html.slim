@@ -11,7 +11,11 @@
         button.btn.btn-danger.btn-xs.pull-right(type="button" ng-click="deleteList(list, $index)")
           span.glyphicon.glyphicon-ban-circle        
         a(href="/task_lists/{{list.id}}") 
-          ' {{list.name}} ({{list.tasks.length}})      
+          ' {{list.name}} ({{list.tasks.length}})
+        p(ng-repeat="script in list.tasks")
+          span(ng-show="script.left_sph")
+            ' Left SPH: {{script.left_sph}}
+
 
   form#new_list(ng-submit="createList(listName)")
     .input-group

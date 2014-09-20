@@ -27,7 +27,7 @@
         .task-description
           editablespan(model="task.description" on-ready="taskEdited(task)" input-class="form-control")
           span(ng-show="task.left_sph")
-            ' Left SPH: {{task.left_sph}}
+            ' Left SPH: {{task}}
         .task-buttons.pull-right
           button.btn.btn-danger.btn-xs.pull-right(type="button" ng-click="deleteTask(task)")
             span.glyphicon.glyphicon-ban-circle
