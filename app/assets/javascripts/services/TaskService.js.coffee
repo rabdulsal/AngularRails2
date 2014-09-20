@@ -1,3 +1,8 @@
+# THIS FILE HANDLES ROUTES, PARTICULARLY FOR BINDING UPDATE -> PATCH.
+# MAY REQUIRE UPDATING FOLLOWING:
+#     -TASK CLASS -> PRESCRIPTIONS
+#     -SERVICE RESOURCE ROUTE -> '/api/prescriptions/:id'
+
 angular.module('todoApp').factory 'Task', ($resource, $http) ->
   class Task
     constructor: (taskListId, errorHandler) ->

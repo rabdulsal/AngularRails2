@@ -1,3 +1,4 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :description, :priority, :due_date, :completed
+	# add left_sph
+  attributes :id, :description, :priority, :due_date, :completed, :left_sph
 end

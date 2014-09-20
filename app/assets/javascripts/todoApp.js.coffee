@@ -1,3 +1,7 @@
+# HANDLES RESOURCE ROUTING ANALOGOUS TO ROUTES.rb
+# IF CREATING NEW MODELS MUST PROVIDE ROUTES FOR FOLLOWING:
+# 	$routeProvider.when '/prescriptions/:rx_id', templateUrl: '/templates/prescription.html', controller: 'PrescriptionController'
+
 todoApp = angular.module('todoApp', ['ngResource', 'ngRoute', 'mk.editablespan', 'ui.sortable'])
 
 todoApp.config ($httpProvider) ->
