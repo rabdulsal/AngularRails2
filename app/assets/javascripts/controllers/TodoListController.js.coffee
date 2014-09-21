@@ -16,9 +16,14 @@ angular.module('todoApp').controller "TodoListController", ($scope, $timeout, $r
       description:  $scope.taskDescription
       left_sph:     $scope.leftSPH
       right_sph:    $scope.rightSPH
+      left_cyl:     $scope.leftCYL
+      right_cyl:    $scope.rightCYL
+      left_axis:    $scope.leftAXIS
+      right_axis:   $scope.rightAXIS
       )
     task.priority = 1
     $scope.list.tasks.unshift(task)
+    $scrope.rightSPH = ""
     $scope.leftSPH = ""
     $scope.taskDescription = ""
 

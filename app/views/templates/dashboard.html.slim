@@ -14,9 +14,20 @@
           ' {{list.name}} ({{list.tasks.length}})
         p(ng-repeat="script in list.tasks")
           span(ng-show="script.left_sph")
+            br/
             ' Left SPH: {{script.left_sph}}
           span(ng-show="script.right_sph")
             ' Right SPH: {{script.right_sph}}
+          span(ng-show="script.left_cyl")
+            br/
+            ' Left CYL: {{script.left_cyl}}
+          span(ng-show="script.right_cyl")
+            ' Right CYL: {{script.right_cyl}}
+          span(ng-show="script.left_axis")
+            br/
+            ' Left AXIS: {{script.left_axis}}
+          span(ng-show="script.right_axis")
+            ' Right AXIS: {{script.right_axis}}
 
 
   form#new_list(ng-submit="createList(listName)")

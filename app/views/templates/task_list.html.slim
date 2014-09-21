@@ -19,6 +19,10 @@
       input#taskDescription.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="taskDescription" placeholder=("Task description") type="text" /
       input#leftSPH.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="leftSPH" placeholder=("Left SPH") type="text" /
       input#rightSPH.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="rightSPH" placeholder=("Right SPH") type="text" /
+      input#leftCYL.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="leftCYL" placeholder=("Left CYL") type="text" /
+      input#rightCYL.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="rightCYL" placeholder=("Right CYL") type="text" /
+      input#leftAXIS.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="leftAXIS" placeholder=("Left AXIS") type="text" /
+      input#rightAXIS.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="rightAXIS" placeholder=("Right AXIS") type="text" /
       button.btn.btn-primary.btn-lg type="submit"  add
     ul.list-group(ui-sortable="sortableOptions" ng-model="list.tasks" ui-sortable-ext="sortableEnabled")
       li.list-group-item(ng-repeat="task in list.tasks | orderBy:sortMethod" ng-class="{completed: task.completed, draggable: sortMethod == 'priority'}")
@@ -26,10 +30,6 @@
           input(type="checkbox" ng-model="task.completed" ng-change="toggleTask(task)")
         .task-description
           editablespan(model="task.description" on-ready="taskEdited(task)" input-class="form-control")
-          span(ng-show="task.left_sph")
-            ' Left SPH: {{task.left_sph}}
-          span(ng-show="task.right_sph")
-            ' Right SPH: {{task.right_sph}}
         .task-buttons.pull-right
           button.btn.btn-danger.btn-xs.pull-right(type="button" ng-click="deleteTask(task)")
             span.glyphicon.glyphicon-ban-circle
@@ -38,4 +38,19 @@
               span.glyphicon.glyphicon-time
         .task-due-date(ng-show="task.due_date")
           small
-            ' Due date: {{task.due_date}}    
+            ' Due date: {{task.due_date}} 
+        p
+            span(ng-show="task.left_sph")
+              ' Left SPH: {{task.left_sph}}
+            span(ng-show="task.right_sph")
+              ' Right SPH: {{task.right_sph}}
+            br/
+            span(ng-show="task.left_cyl")
+              ' Left CYL: {{task.left_cyl}}
+            span(ng-show="task.right_cyl")
+              ' Right CYL: {{task.right_cyl}}
+            br/
+            span(ng-show="task.left_axis")
+              ' Left AXIS: {{task.left_axis}}
+            span(ng-show="task.right_axis")
+              ' Right AXIS: {{task.right_axis}}   

@@ -6,5 +6,9 @@ class TaskSerializer < ActiveModel::Serializer
   				:due_date, 
   				:completed, 
   				:left_sph, 
-  				:right_sph
+  				:right_sph,
+  				:left_cyl,
+  				:right_cyl,
+  				:left_axis,
+  				:right_axis
 end
