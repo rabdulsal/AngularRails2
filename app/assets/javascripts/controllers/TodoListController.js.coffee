@@ -23,9 +23,13 @@ angular.module('todoApp').controller "TodoListController", ($scope, $timeout, $r
       )
     task.priority = 1
     $scope.list.tasks.unshift(task)
-    $scrope.rightSPH = ""
-    $scope.leftSPH = ""
-    $scope.taskDescription = ""
+    $scope.leftAXIS         = ""
+    $scope.rightAXIS        = ""
+    $scope.leftCYL          = ""
+    $scope.rightCYL         = ""
+    $scope.rightSPH         = ""
+    $scope.leftSPH          = ""
+    $scope.taskDescription  = ""
 
   $scope.deleteTask = (task) ->
     lowerPrioritiesBelow(task)
