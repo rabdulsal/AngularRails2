@@ -13,11 +13,13 @@ angular.module('todoApp').controller "TodoListController", ($scope, $timeout, $r
     # Add left_sph: $scope.leftSPH to task variable
     #task = @taskService.create(description: $scope.taskDescription)
     task = @taskService.create(
-      description: $scope.taskDescription
-      left_sph: $scope.leftSPH
+      description:  $scope.taskDescription
+      left_sph:     $scope.leftSPH
+      right_sph:    $scope.rightSPH
       )
     task.priority = 1
     $scope.list.tasks.unshift(task)
+    $scope.leftSPH = ""
     $scope.taskDescription = ""
 
   $scope.deleteTask = (task) ->

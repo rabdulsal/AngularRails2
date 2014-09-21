@@ -31,7 +31,7 @@ class Api::TasksController < Api::BaseController
 
   def safe_params
     # add left_sph
-    params.require(:task).permit(:description, :target_priority, :completed, :due_date, :left_sph)
+    params.require(:task).permit(:description, :target_priority, :completed, :due_date, :left_sph, :right_sph)
   end
 
   def check_owner
