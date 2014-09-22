@@ -2,7 +2,7 @@
 
   div.panel.panel-default.dashboard-list
     div.panel-heading 
-      h4 Your Prescriptions
+      h4 Your Prescription Batches
     ul.list-group(ng-show="lists == 0")
       li.list-group-item
         ' You haven't created any lists yet.      
@@ -12,28 +12,13 @@
           span.glyphicon.glyphicon-ban-circle        
         a(href="/task_lists/{{list.id}}") 
           ' {{list.name}} ({{list.tasks.length}})
-        p(ng-repeat="script in list.tasks")
-          span(ng-show="script.left_sph")
-            br/
-            ' Left SPH: {{script.left_sph}}
-          span(ng-show="script.right_sph")
-            ' Right SPH: {{script.right_sph}}
-          span(ng-show="script.left_cyl")
-            br/
-            ' Left CYL: {{script.left_cyl}}
-          span(ng-show="script.right_cyl")
-            ' Right CYL: {{script.right_cyl}}
-          span(ng-show="script.left_axis")
-            br/
-            ' Left AXIS: {{script.left_axis}}
-          span(ng-show="script.right_axis")
-            ' Right AXIS: {{script.right_axis}}
-
-
+  div
+    h2
+      small Create a New Prescription Batch
   form#new_list(ng-submit="createList(listName)")
     .input-group
-      input#taskDescription.form-control.input-lg(type="text" autofocus="autofocus" placeholder="List name" maxlength="255" ng-model="listName" data-non-blank)
+      input#taskDescription.form-control.input-lg(type="text" autofocus="autofocus" placeholder="Batch Name" maxlength="255" ng-model="listName" data-non-blank)
       span.input-group-btn
-        button.btn.btn-primary.btn-lg(type="submit") create list
+        button.btn.btn-primary.btn-lg(type="submit") New Batch
 
   

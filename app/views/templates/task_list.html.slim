@@ -1,9 +1,11 @@
 .ng-cloak(ng-init="init()")
+  p
+    = link_to "<- Back to Dashboard", dashboard_url 
   div.panel.panel-info.task-list
     div.panel-heading     
-      editablespan(model="list.name" on-ready="listNameEdited(list.name)" input-class="form-control" span-class="list-name")
+      editablespan(model="list.name" on-ready="listNameEdited(list.name)" input-class="form-control" span-class="list-name") 
+      em Create a new prescription
     form#new_task novalidate="" name="scriptForm" ng-submit="scriptForm.$valid && addTask()"
-      input#taskDescription.form-control.input-lg autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="taskDescription" placeholder=("Task description") type="text" required="" /
       table.table
         thead
           tr
@@ -18,7 +20,7 @@
         tbody
           tr
             td
-              ' Left Eye
+              ' Left Eye (OS)
             td
               input#leftSPH autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="leftSPH" placeholder=("-10 to 10") type="number" required="" min="-10" max="10"  quarter-increment="" /
             td
@@ -27,7 +29,7 @@
               input#leftAXIS autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="leftAXIS" placeholder=("0 to 180") type="number" min="0" max="180" required=""  integer="" /
           tr
             td
-              ' Right Eye
+              ' Right Eye (OD)
             td
               input#rightSPH autofocus="autofocus" data-non-blank="" maxlength="255" ng-model="rightSPH" placeholder=("-10 to 10") type="number" min="-10" max="10" required="" quarter-increment="" /
             td
@@ -46,17 +48,16 @@
     div(ng-show="scriptForm.$error.quarter || scriptForm.$error.min || scriptForm.$error.max || scriptForm.$error.integer")
       div.alert.alert-danger role="alert"
         p(ng-show="scriptForm.$error.min || scriptForm.$error.max")
-          ' SPH value must be between -10 to 10; AXIS value must be between 0 to 180
+          ' SPH and CYL values must be between -10 to 10 | AXIS value must be between 0 to 180
         p(ng-show="scriptForm.$error.quarter")
           ' Values only in increments of 0.25 allowed
         p(ng-show="scriptForm.$error.integer") 
           ' Value cannot be a decimal number
+
+  div.panel.panel-info.task-list
+    div.panel-heading.list-name Your past prescriptions
     ul.list-group(ui-sortable="sortableOptions" ng-model="list.tasks" ui-sortable-ext="sortableEnabled")
       li.list-group-item(ng-repeat="task in list.tasks | orderBy:sortMethod" ng-class="{completed: task.completed, draggable: sortMethod == 'priority'}")
-        .task-completed
-          input(type="checkbox" ng-model="task.completed" ng-change="toggleTask(task)")
-        .task-description
-          editablespan(model="task.description" on-ready="taskEdited(task)" input-class="form-control")
         .task-buttons.pull-right
           button.btn.btn-danger.btn-xs.pull-right data-placement="right" data-toggle="tooltip" ng-click="deleteTask(task)" title=("Click to permanently delete this prescription. This cannot be un-done.") type="button" 
             span.glyphicon.glyphicon-ban-circle 
@@ -74,7 +75,7 @@
           tbody
             tr
               td
-                ' Left Eye
+                ' Left Eye (OS)
               td
                 ' {{task.left_sph}}
               td
@@ -83,7 +84,7 @@
                 ' {{task.left_axis}}
             tr
               td
-                ' Right Eye
+                ' Right Eye (OD)
               td
                 ' {{task.right_sph}}
               td
