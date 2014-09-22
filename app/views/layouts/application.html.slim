@@ -9,7 +9,11 @@ html
     = csrf_meta_tags
 
   body(ng-app="todoApp")
-    .container
-      = render "layouts/navigation"
-      = render "layouts/flash"
-      = yield
+    div[class="#{@homepage}"]
+      .container[class="#{@block}"]
+        - if !@block
+          = render "layouts/navigation"
+          = render "layouts/flash"
+        - else
+          = render "layouts/splash_navigation"        
+        = yield
